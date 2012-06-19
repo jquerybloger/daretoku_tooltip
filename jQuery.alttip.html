@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="./images/favicon.ico">
+<meta NAME="ROBOTS" CONTENT="NOINDEX,NOFOLLOW,NOARCHIVE">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="jQueryの実験場です。">
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="">
+<title>jQuery.daretoku_tooltip</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="./js/easing.js"></script>
+<script src="./js/jQuery.daretoku_tooltip.js"></script>
+<script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css" media="screen" />
+<style>
+		.tooltip{
+			width:auto;
+			background:url(./images/black.png);
+			padding:5px;
+			display:none;
+			color:#fff;
+			overflow:auto;
+			position:absolute;
+			border:1px solid #666;
+			}
+		.tooltip p{
+			padding:0;
+			margin:0;
+			}
+		.alt_caption{
+			padding:0 0 0 5px;
+			font-weight:bold;
+			border-left:3px solid red;
+			font-size:12px;
+			}
+		.title_text{
+			font-size:11px;
+			}
+</style>
+
+<script type="text/javascript">
+    (function(jQuery){
+	 $(function(){
+		$('#gallery img').tooltip({
+			sokudo:500,
+			animation_patrun:"easeInOutSine",
+			type:"2",
+			width:"300px"
+			});
+		
+		$("#part_2 a").tooltip({
+			swich:"title_text",
+			type:"1",
+			width:"150px"
+			});
+		
+		$("#part_3 img").tooltip({
+			swich:"title_text",
+			type:"3",
+			width:"500px"
+			});
+		
+		
+		$("#part_4 a").tooltip({
+			swich:"title_text",
+			type:"3",
+			width:"200px",
+			position_x:60,
+			position_y:-25
+		});
+	});
+	})(jQuery);
+	
+	$(document).ready(function() {
+        $('#gallery a').lightBox();
+    });
+</script>
+   	
+<style type="text/css">
+	/* jQuery lightBox plugin - Gallery style */
+	#gallery {
+		background-color: #444;
+		color:#fff;
+		padding: 10px;
+		width: 520px;
+	}
+	#gallery ul { list-style: none; }
+	#gallery ul li { display: inline; }
+	#gallery ul img {
+		border: 5px solid #3e3e3e;
+		border-width: 5px 5px 20px;
+	}
+	#gallery ul a:hover img {
+		border: 5px solid #fff;
+		border-width: 5px 5px 20px;
+		color: #fff;
+	}
+	#gallery ul a:hover { color: #fff; }
+</style>
+</head>
+
+<body>
+
+<h1><a href="http://no-creation-no-life.net/" target="_blank">no-creation-no-life</a></h1>
+
+<h2 id="example">サンプル</h2>
+<h2>jQuery.daretoku_tooltip</h2>
+<p>いまさら感があるtooltipのjQuerypluginです。<br>
+初めてjQuerypluginを作成しました。<br>
+なので色々と【もっとこうしたほうがいい】っていう所があると思います。<br>
+githubでコードを公開していますので、よろしければforkお願いします。<br>
+<a href="https://github.com/jquerybloger/test_1" target="_blank">github</a>
+</p>
+<h3>動作確認ブラウザ</h3>
+<p>IE7,8,9,Google chrome 19.0.1084.56 m,fire fox</p>
+<h3>導入に必要なもの</h3>
+<p>
+jQuery本体<br>
+jQuery easing<br>
+</p>
+
+<h3>機能紹介</h3>
+<p>
+light boxとかにも対応<br>
+tooltipの横・縦幅を指定できる<br>
+表示する際のアニメーションを指定できる<br>
+表示位置を数値で指定できる<br>
+title,alt属性に対応<br>
+</p>
+<div id="gallery">
+	<h3>lightboxに対して使う場合</h3>
+    <p>lightboxに対して使う場合は、ブログの方に記述してある通りにjQuery.lightbox.jsを編集してください。<br>
+	指定も$("#hoge img").tooltip();のようにimgに指定してください。
+	</p>
+    <ul>
+        <li>
+            <a href="photos/image1.jpg" name="lightboxのタイトルですよ。">
+                <img src="photos/thumb_image1.jpg" width="72" height="72" alt="altテキストですよ。" title="タイトルですよ。"/>
+            </a>
+        </li>
+        <li>
+            <a href="photos/image2.jpg" name="lightbox２のタイトルですよ。">
+                <img src="photos/thumb_image2.jpg" width="72" height="72" alt="altテキスト２ですよ。" title="タイトル２ですよ。"/>
+            </a>
+        </li>
+        <li>
+            <a href="photos/image3.jpg" name="lightbox３のタイトルですよ。">
+                <img src="photos/thumb_image3.jpg" width="72" height="72" alt="altテキスト３ですよ。" title="タイトル３ですよ。"/>
+            </a>
+        </li>
+        <li>
+            <a href="photos/image4.jpg" name="lightbox４のタイトルですよ。">
+                <img src="photos/thumb_image4.jpg" width="72" height="72" alt="altテキスト４ですよ。" title="タイトル４ですよ。"/>
+            </a>
+        </li>
+        <li>
+            <a href="photos/image5.jpg" name="lightbox５のタイトルですよ。">
+                <img src="photos/thumb_image5.jpg" width="72" height="72" alt="altテキスト５ですよ。" title="タイトル５ですよ。"/>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div id="part_2">
+	<h3>リンク要素</h3>
+    <p>リンクに対して指定した場合<br>
+	リンク要素だけの場合はオプションのswichを"title_text"にしてください。</p>
+    <a href="" title="リンクタイトル１">サンプルテキスト１</a>
+    <a href="" title="リンクタイトル２">サンプルテキスト２</a>
+	<a href="" title="リンクタイトル３">サンプルテキスト３</a>
+    <a href="" title="リンクタイトル４">サンプルテキスト４</a>
+</div>
+<div id="part_3">
+	<h3>リンク要素とIMG要素</h3>
+    <p>どちらにもtitleが指定されている場合にもブラウザのtooltipが出ないようにしました。</p>
+    <pre>
+aを指定した場合
+$("#part_3 a").tooltip({
+	swich:"title_text"
+});
+    
+    </pre>
+    <a href="" title="リンクタイトル１"><img src="photos/thumb_image5.jpg" width="72" height="72" alt="altテキスト1ですよ。" title="タイトル1ですよ。"/></a>
+    <a href="" title="リンクタイトル２"><img src="photos/thumb_image5.jpg" width="72" height="72" alt="altテキスト2ですよ。" title="タイトル2ですよ。"/></a>
+	<a href="" title="リンクタイトル３"><img src="photos/thumb_image5.jpg" width="72" height="72" alt="altテキスト3ですよ。" title="タイトル3ですよ。"/></a>
+    <a href="" title="リンクタイトル４"><img src="photos/thumb_image5.jpg" width="72" height="72" alt="altテキスト4ですよ。" title="タイトル4ですよ。"/></a>
+</div>
+
+<div id="part_4">
+<h3>位置指定</h3>
+	<a href="" title="リンクタイトル１">サンプルテキスト１</a>
+    <a href="" title="リンクタイトル２">サンプルテキスト２</a>
+	<a href="" title="リンクタイトル３">サンプルテキスト３</a>
+    <a href="" title="リンクタイトル４">サンプルテキスト４</a>
+</div>
+
+<div class="tooltip"></div>
+</body>
+</html>
